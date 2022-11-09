@@ -1,6 +1,11 @@
 ﻿using backConpaniaFalsa.Modelo;
 using backConpaniaFalsa.Vista;
 using Microsoft.AspNetCore.Mvc;
+using MongoDB.Bson;
+using MongoDB.Bson.Serialization.IdGenerators;
+using MongoDB.Bson.Serialization;
+using MongoDB.Driver.Core.WireProtocol.Messages;
+using System.Runtime.Intrinsics.Arm;
 
 namespace backConpaniaFalsa.Controlador
 {
@@ -15,6 +20,28 @@ namespace backConpaniaFalsa.Controlador
         {
             return Ok(await db.GetAllEmpleados());
         }
+
+        [HttpGet("{correo},{pass}")]
+        public async Task<IActionResult> getLoginEmpleado(string correo, string pass)
+        {
+            Empleado emp = new Empleado();
+
+            emp.correo = correo;
+            emp.pass = pass;
+
+            if (correo!= emp.correo && pass != emp.pass)
+            {
+                ModelState.AddModelError("nombre,pass", "Debes llenar el campo correctamente");
+
+            }
+            else
+            {
+                Ok("Bienvenido " + emp.nombre);
+            }
+            Console.WriteLine(db.GetLoginEmpleado(correo, pass));
+            return Ok(await db.GetLoginEmpleado(correo,pass));
+
+        }
         
         [HttpGet("{id}")]
         public async Task <IActionResult> getEmpleadosById(string id)
@@ -22,49 +49,49 @@ namespace backConpaniaFalsa.Controlador
             return Ok(await db.GetEmpleadoById(id));
         }
         [HttpPost]
-        public async Task<IActionResult> postEmpleado([FromBody] Empleado dep)
+        public async Task<IActionResult> postEmpleado([FromBody] Empleado emp)
         {
-            if (dep == null)
+            if (emp == null)
                 return BadRequest();
-            if (dep.nombre == string.Empty)
+            if (emp.nombre == string.Empty)
             {
                 ModelState.AddModelError("nombre", "Debes llenar el nombre");
             }
-            if (dep.correo == string.Empty)
+            if (emp.correo == string.Empty)
             {
                 ModelState.AddModelError("correo", "Debes llenar el campo");
             }
-            if (dep.pass == string.Empty)
+            if (emp.pass == string.Empty)
             {
                 ModelState.AddModelError("pass", "Debes llenar el campo");
             }
 
-            await db.PostEmpleado(dep);
+            await db.PostEmpleado(emp);
 
             return Created("Creado exitosamente", true);
         }
         
         [HttpPut("{id}")]
-        public async Task<IActionResult> putEmpleado([FromBody] Empleado dep, string id)
+        public async Task<IActionResult> putEmpleado([FromBody] Empleado emp, string id)
         {
-            if (dep == null)
+            if (emp == null)
                 return BadRequest();
-            if (dep.nombre == string.Empty)
+            if (emp.nombre == string.Empty)
             {
                 ModelState.AddModelError("nombre", "Debes llenar el campo");
             }
-            if (dep.correo == string.Empty)
+            if (emp.correo == string.Empty)
             {
                 ModelState.AddModelError("correo", "Debes llenar el campo");
             }
-            if (dep.pass == string.Empty)
+            if (emp.pass == string.Empty)
             {
                 ModelState.AddModelError("pass", "Debes llenar el campo");
             }
 
 
-            dep.Id = new MongoDB.Bson.ObjectId(id);
-            await db.PutEmpleado(dep);
+            emp.Id = new MongoDB.Bson.ObjectId(id);
+            await db.PutEmpleado(emp);
 
             return Created("Modificado exitosamente", true);
         }

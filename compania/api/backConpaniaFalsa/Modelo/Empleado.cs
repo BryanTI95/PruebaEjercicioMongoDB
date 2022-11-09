@@ -6,6 +6,7 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
+    
     public class Empleado
     {
      
@@ -14,14 +15,15 @@
         public ObjectId Id          { get; set; }
        public string nombre         { get; set; }
        public string departamento   { get; set; }
-       public string correo         { get; set; }
+        public string correo        { get; set; }
        public string pass           { get; set; }
-       public DateOnly fecIng       { get; set; }
+       public string fecIng         { get; set; }
        public string foto           { get; set; }
 
         public Empleado()
         {
 
         }
+     
     }
 }

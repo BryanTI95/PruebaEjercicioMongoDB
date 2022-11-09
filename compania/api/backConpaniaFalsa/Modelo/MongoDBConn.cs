@@ -9,7 +9,7 @@ namespace backConpaniaFalsa.Modelo
 
         //Conexion a MongoDB
         public MongoDBConn(){
-            cte = new MongoClient("mongodb://127.0.0.1:270717");
+            cte = new MongoClient("mongodb://localhost:27017");
             db = cte.GetDatabase("companiaFalsa");
             }
 

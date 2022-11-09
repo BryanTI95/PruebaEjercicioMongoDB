@@ -1,6 +1,7 @@
 ﻿using backConpaniaFalsa.Modelo;
 using MongoDB.Bson;
 using MongoDB.Driver;
+using System.Net.Http;
 
 namespace backConpaniaFalsa.Vista
 {
@@ -36,25 +37,26 @@ namespace backConpaniaFalsa.Vista
 
 
 
-        public async Task<Empleado> GetLoginEmpleado(string correo,string pass)
+        public async Task<Empleado> GetLoginEmpleado(string correo, string pass)
         {
+
             return await collection.FindAsync(
-                new BsonDocument { { "_id", new ObjectId(correo) }, { "_id", new ObjectId(pass) } }).Result.
-                FirstAsync();
+            new BsonDocument { { "correo", (correo) },{ "pass", (pass) } }).Result.
+            FirstAsync();
         }
 
-        public async Task PostEmpleado(Empleado dep)
+        public async Task PostEmpleado(Empleado emp)
         {
-            await collection.InsertOneAsync(dep);
+            await collection.InsertOneAsync(emp);
         }
 
-        public async Task PutEmpleado(Empleado dep)
+        public async Task PutEmpleado(Empleado emp)
         {
             var filtro = Builders<Empleado>
                 .Filter
-                .Eq(s => s.Id, dep.Id);
+                .Eq(s => s.Id, emp.Id);
 
-            await collection.ReplaceOneAsync(filtro, dep);
+            await collection.ReplaceOneAsync(filtro, emp);
         }
 
 

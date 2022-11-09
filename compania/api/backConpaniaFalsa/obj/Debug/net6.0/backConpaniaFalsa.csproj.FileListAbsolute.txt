@@ -36,3 +36,9 @@ D:\REPO\compania\api\backConpaniaFalsa\obj\Debug\net6.0\refint\backConpaniaFalsa
 D:\REPO\compania\api\backConpaniaFalsa\obj\Debug\net6.0\backConpaniaFalsa.pdb
 D:\REPO\compania\api\backConpaniaFalsa\obj\Debug\net6.0\backConpaniaFalsa.genruntimeconfig.cache
 D:\REPO\compania\api\backConpaniaFalsa\obj\Debug\net6.0\ref\backConpaniaFalsa.dll
+D:\REPO\compania\api\backConpaniaFalsa\bin\Debug\net6.0\Microsoft.Owin.dll
+D:\REPO\compania\api\backConpaniaFalsa\bin\Debug\net6.0\Microsoft.Owin.Security.dll
+D:\REPO\compania\api\backConpaniaFalsa\bin\Debug\net6.0\Microsoft.Owin.Security.Google.dll
+D:\REPO\compania\api\backConpaniaFalsa\bin\Debug\net6.0\Microsoft.Owin.Security.OAuth.dll
+D:\REPO\compania\api\backConpaniaFalsa\bin\Debug\net6.0\Newtonsoft.Json.dll
+D:\REPO\compania\api\backConpaniaFalsa\bin\Debug\net6.0\Owin.dll
