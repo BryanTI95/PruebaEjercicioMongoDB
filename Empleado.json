@@ -1,0 +1,21 @@
+[{
+  "_id": {
+    "$oid": "6365b57a5d593de62d193193"
+  },
+  "departamento": "TI",
+  "foto": "a.png",
+  "correo": "a@a.com",
+  "nombre": "Andres",
+  "pass": "1234",
+  "fecIng": "2022-11-04"
+},{
+  "_id": {
+    "$oid": "6369dbd28b22ead01ce96782"
+  },
+  "nombre": "andresito",
+  "departamento": "TI",
+  "correo": "b@b.com",
+  "pass": "aaaa",
+  "fecIng": "2022-11-07",
+  "foto": "string"
+}]

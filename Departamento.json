@@ -1,0 +1,16 @@
+[{
+  "_id": {
+    "$oid": "6365b2f95d593de62d193189"
+  },
+  "nombreDepa": "TI"
+},{
+  "_id": {
+    "$oid": "6365b5015d593de62d19318f"
+  },
+  "nombreDepa": "Soporte"
+},{
+  "_id": {
+    "$oid": "6365b53f5d593de62d193190"
+  },
+  "nombreDepa": "Administracion"
+}]
